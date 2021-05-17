@@ -1,0 +1,155 @@
+﻿Structure Map
+In it's simplest form: 
+
+var container = new Container();
+SauceBearnaise sauce = container.GetInstance<SauceBearnaise>();
+
+Given StructureMap.Container, use generic GetInstance<> method to get an instance of concrete class SauceBearnaise (Has default constructor)
+
+Defining an interface IAction
+This interface describes an action that the computer can take
+Each action has a trigger that is a string of words. Each trigger is listed in the Main method as a case.
+
+IAction
+	{
+		string actionTrigger;
+		void ActionMethod();
+	}
+
+ActionWorld : IAction
+	{
+		actionTrigger actionTriggerWorld = "hello";
+		public void ActionMethod();
+			{
+				Console.WriteLine("world!");
+			}
+
+	}
+
+
+	How do they look in the book? I'm just curious. 
+	Can I take a switch statement and put it into an interface?
+	If I made the word-definition pairs into a switch statement in an interface, could I change the way each consumer of the interface handles the text? 
+	Should I make a new goal of seeing what I can do when I make the main word
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class HomeController
+{
+    private readonly IProductService service;
+
+    public HomeController(
+        IProductService service)
+    {
+        if (service == null)
+            throw new ArgumentNullException("service");
+
+        this.service = service;
+    }
+}
+
+
+private static void Main()
+{
+    IMessageWriter writer = new ConsoleMessageWriter();
+    var salutation = new Salutation(writer);
+    salutation.Exclaim();
+}
+
+public class Salutation
+{
+	private readonly IMessageWriter writer;
+	public Salutation(IMessageWriter writer)
+	{
+		if (writer == null)
+		{
+			throw new ArguementNullException("writer");
+		}
+		this.writer = writer;
+	}
+
+	public void Exclaim()
+	{
+		this.writer.Write("Hello DI!");
+	}
+}
+
+
+
+
+
+
+public interface IMessageWriter
+{
+    void Write(string message);
+}
+
+
+
+
+
+
+public class ConsoleMessageWriter : IMessageWriter
+{
+    public void Write(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
